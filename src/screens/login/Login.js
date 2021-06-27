@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../common/header/Header";
+import { Redirect } from "react-router";
+
 import './Login.css';
 import {
   Button,
@@ -32,6 +34,7 @@ export default class Login extends Component {
       password: "",
       reqpassword: "dispNone",
       requsername: "dispNone",
+      isLoggedIn: "false",
       incorrectUsernamePassword: "dispNone"
     };
   }
@@ -56,20 +59,32 @@ export default class Login extends Component {
       this.state.username.trim() === "admin" &&
       this.state.password.trim() === "password"
     ) {
+      console.log("Authenticated");
       sessionStorage.setItem(
         "access-token",
         "IGQVJXOFdRVTJnQU03bHlCaTFZASUItVzl6WHRPMnJhWlF2RlR1dzRNaHZALV3RpdHp4U3RaZAGhYSDdaNDlILW1xUmljRVdwdmR1bVM2TmgzckxFcnVvdWl3QVBoOXRuWlMyRlhvSGdQZAndDSVFSOVpiUzdheWs4YUdRaW9J"
       );
       this.setState({ incorrectUsernamePassword: "dispNone" });
+      this.props.onIsLoggedInChanged(true);
     } else {
       this.setState({ incorrectUsernamePassword: "dispBlock" });
     }
   };
 
   render() {
+    if (this.props.isLoggedIn === true) {
+      console.log("Redirected");
+      return (
+        <Redirect to={{ pathname: "/home", state: { loginSuccess: true } }} />
+      );
+    }
     return (
       <div>
-        <Header />
+        <Header  
+          isLoggedIn={this.props.isLoggedIn}
+          onIsLoggedInChanged={this.onLoginChange}
+          {...this.props}
+          />
         <Card style={styles.card}>
           <CardContent>
             <Typography style={styles.title}>LOGIN</Typography>
