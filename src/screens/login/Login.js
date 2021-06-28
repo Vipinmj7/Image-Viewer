@@ -62,7 +62,7 @@ export default class Login extends Component {
       console.log("Authenticated");
       sessionStorage.setItem(
         "access-token",
-        "IGQVJYbVp4aG04dEo0a2V2TWhNcUpDTzI4amRGbk9HRWY0WUlERlRTUmM0Q0hiWmFkQTBnS1gwQ2RhNW5XcE1xT1NyWWV1ZATQ5aG0tUkFYQTlRWGVndU5ZAMHlRM0RwS01VNXpDS195eGRiNXVMbUF3LXpfbTBGamhDYVBz"
+        "IGQVJXZAVk5TVVmbEFhV3Y2eG50MExrUlRBcGhzZAjZA0aFc3dmo4ejBfYVhlNmp0NVllOHN6eFN5ZAkMxUTFWd1A3TWRxVERxcEhvMXMzb2c0Q0pWMTV2VHh1RXRJd2ZAxOUJPS3RPOHVLa3U4aEkzQkhaWWlSV1BhVDRfOUU0"
       );
       this.setState({ incorrectUsernamePassword: "dispNone" });
       this.props.onIsLoggedInChanged(true);
