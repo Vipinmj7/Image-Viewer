@@ -82,8 +82,7 @@ class Post extends Component {
   }
 
   componentDidUpdate() {
-    // console.log("component did UPDATE");
-    // console.log(this.props.postEXIF);
+     console.log("component did UPDATE");
   }
 
   getPostDate = (timestamp) => {
@@ -147,19 +146,15 @@ class Post extends Component {
   };
 
   render() {
-    // console.log("is from <<<<< POST");
-    // console.log(this.props.postDetails);
     let { postEXIF: postDetails, commentsList } = this.state;
     let { classes } = this.props;
     if (postDetails === null) {
       return <div />;
     }
-    // console.log("is from >>>>>> POST");
-    // console.log(postDetails);
     return (
       <div key={"imagePost" + this.props.containerId}>
         {postDetails.media_type.toLowerCase() === "image" ? (
-          <Card className={classes.root}>
+          <Card className={classes.root} cols={2}>
             <CardHeader
               className={classes.avatarAlignment}
               avatar={

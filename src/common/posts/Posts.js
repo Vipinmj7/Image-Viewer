@@ -14,9 +14,6 @@ export default class Posts extends Component {
     ) {
       return <Redirect to={{ pathname: "/" }} />;
     }
-
-    // console.log("from POST'S");
-    // console.log(this.props.totalPosts);
     return (
       <>
         <div className="container">

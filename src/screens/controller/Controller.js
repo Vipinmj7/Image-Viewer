@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import Login from "../../screens/login/Login";
+import Profile from "../../screens/profile/Profile"
 
 export default class Controller extends Component {
   constructor() {
@@ -36,6 +37,18 @@ export default class Controller extends Component {
           path="/home"
           render={(props) => (
             <Home
+              {...props}
+              baseUrl={this.state.baseUrl}
+              isLoggedIn={this.state.isLoggedIn}
+              onIsLoggedInChanged={this.onLoginChange}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/profile"
+          render={(props) => (
+            <Profile
               {...props}
               baseUrl={this.state.baseUrl}
               isLoggedIn={this.state.isLoggedIn}
